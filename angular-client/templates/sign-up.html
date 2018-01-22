@@ -1,15 +1,37 @@
 <div ng-controller="signUpCtrl">
-  <iframe width="100%" height="300px" src="{{formUrl()}}"></iframe>
+  <!-- <iframe width="100%" height="300px" src="{{formUrl()}}"></iframe> -->
     <div class="create-editor">
-    <h2>Submit your youtube video</h2>
-    <h3><em>use short url</em></h3>
+    <h2>Make a request to present!</h2>
     <form>
       <input ng-model="p.title" name="title" class="create-input" type="text"  placeholder="Talk Title"></input>
-      <!-- <input ng-model="p.author" name="author" class="create-input" type="text"  placeholder="Author"></input> -->
+      <input ng-model="p.when" name="author" class="create-input" type="text"  placeholder="When?"></input>
 
-      <input  ng-model="p.subject" name="subject" class="create-input" type="text"  placeholder="Video URL"></input>
+      <input  ng-model="p.subject" name="subject" class="create-input" type="text"  placeholder="Subject"></input>
       <textarea  ng-model="p.body" name="body" class="create-body-textarea"  placeholder="What would you like to presesnt on?"></textarea>
-      <button ng-click="submit(p, $ctrl.changeView)" class="create-submit-button" type="submit">Save post</button>
+      <button ng-click="submit(p, $ctrl.changeView)" class="create-submit-button" type="submit">Sign Up!</button>
     </form>
   </div>
+<div class="create-preview">
+   <h2> Current sign ups </h2>
+    <ul>
+      <li ng-repeat="req in currentSignups"  class="feed-list-item">
+        <!-- title     -->
+        <div class="feed-list-item-title"  >{{req.title}}</div>
+        <div class="feed-list-item-title"  >{{req.when}}</div>
+
+        <div class="post-byline-author" > <em> by: <br /> {{req.author}} </em><br /></div>
+        <span class="feed-list-item-lede">{{req.body}}</span>
+      </li>
+    </ul>
+    <h2>Current requests</h2>
+      <ul ng-controller="reqCtrl">
+      <li ng-repeat="req in currentRequests"  class="feed-list-item">
+        <!-- title     -->
+        <div class="feed-list-item-title"  ng-click="$ctrl.changeView('post', post)" >{{req.title}}</div>
+        <div class="post-byline-author" > <em> by: <br /> {{req.author}} </em><br /></div>
+        <span class="feed-list-item-lede">{{req.body}}</span>
+      </li>
+    </ul>
+</div>
+
 </div>

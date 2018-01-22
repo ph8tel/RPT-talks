@@ -9,6 +9,7 @@
       <textarea  ng-model="p.body" name="body" class="create-body-textarea"  placeholder="What would you like to see presented?"></textarea>
       <button ng-click="submit(p, $ctrl.changeView)" class="create-submit-button" type="submit">Send Request</button>
     </form>
+    <h2>Current requests</h2>
 
     <ul>
       <li ng-repeat="req in currentRequests"  class="feed-list-item">
