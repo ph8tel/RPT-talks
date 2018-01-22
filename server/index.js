@@ -5,7 +5,8 @@ const Blogs = require('../database-mongodb/Blog.js');
 const Users = require('../database-mongodb/User.js');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000
+
 
 const blogs = require('./routes/blogs/blogs')
 const users = require('./routes/users/users')
