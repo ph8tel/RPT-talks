@@ -33,6 +33,7 @@ angular.module('app')
           $http.get('/api/date/' + post.createdAt)
           .then(function(res){
             post.createdAt = res.data.date
+            post.videoShowUrl = $sce.trustAsResourceUrl(post.videoUrl.replace('watch?v=', 'embed/') )
           })
           return post
         }

@@ -3,11 +3,11 @@
 
   <div ng-show="showMe" >SHOW ME</div><button ng-click="toggleShow()">SHOW THE DIV</button>
 
-<form ng-submit="addVid(inc)">
+<!-- <form ng-submit="addVid(inc)">
   <input type="text" ng-model="inc" name="testdata">
 
 </form>
-<!--         <ng-youtube-embed
+        <ng-youtube-embed
           video="https://www.youtube.com/embed/EASboUP2DUk"
           autoplay="true"
           color="white"
@@ -15,8 +15,10 @@
           end="20"
           width='1080'
           height='760'>
-        </ng-youtube-embed> -->
+        </ng-youtube-embed>
         <!-- <iframe width='1080' height='760' src="https://www.youtube.com/embed/EASboUP2DUk" frameborder="0" allowfullscreen></iframe> -->
-<iframe  width="100%" src="{{testUrl}}" frameborder="0" allowfullscreen></iframe>
-
+<!-- <iframe  width="100%" src="{{testUrl}}" frameborder="0" allowfullscreen></iframe> -->
+<div ng-controller="signUpCtrl">
+<iframe width="100%" height="900px" src="{{formUrl()}}"></iframe>
+</div>
 </div>

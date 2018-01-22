@@ -4,12 +4,15 @@
     <span ng-show="$ctrl.view !== 'login' "
       ng-class="$ctrl.view === 'feed' ? 'nav-selected' : 'nav-unselected'"
       ng-click="$ctrl.changeView('feed')">
-      See all Posts {{logged()}}
+      SEE ALL TALKS
     </span>
     <span ng-show="$ctrl.view !== 'login' "
      ng-class="$ctrl.view === 'create' ? 'nav-selected' : 'nav-unselected'"
      ng-click="$ctrl.changeView('create')">
-   Write a Post</span>
+   SUBMIT</span>
+    <span ng-show="$ctrl.view !== 'login' " ng-class="$ctrl.view === 'signup' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.changeView('signup')">
+  SIGN UP </span>
     <span ng-show="$ctrl.isAdmin()"
      ng-class="$ctrl.view === 'admin' ? 'nav-selected' : 'nav-unselected'"
     ng-click="$ctrl.changeView('admin')">
@@ -25,12 +28,13 @@
       <span ng-show="$ctrl.view === 'login' " ng-class="$ctrl.view === 'login' ? 'nav-selected' : 'nav-unselected'"
     ng-click="$ctrl.changeView('login')">
   LOGIN</span>
-    <span ng-show="$ctrl.view !== 'login' " ng-class="$ctrl.view === 'login' ? 'nav-selected' : 'nav-unselected'"
+    <span  ng-show="$ctrl.view !== 'login' " ng-class="$ctrl.view !== 'login' ? 'nav-selected' : 'nav-unselected'"
     ng-click="$ctrl.loggOut()">
   LOGOUT</span>
-  <span  ng-class="$ctrl.view === 'search' ? 'nav-selected' : 'nav-unselected'"
+<!--   <span  ng-class="$ctrl.view === 'search' ? 'nav-selected' : 'nav-unselected'"
     ng-click="$ctrl.changeView('search')">
-  SEARCH</span>
+  SEARCH</span> -->
+
   </div>
 
   <div class="main" ng-switch on="$ctrl.view">
@@ -50,6 +54,10 @@
      ng-switch-when="search" change-view="$ctrl.changeView"></search>
     <custom
      ng-switch-when="custom" change-view="$ctrl.changeView"></custom>
+    <signup
+     ng-switch-when="signup" change-view="$ctrl.changeView"></signup>
+
+
     <post ng-switch-default></post>
   </div>
 

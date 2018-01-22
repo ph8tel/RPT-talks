@@ -8,7 +8,6 @@ angular.module('app')
 })
 .controller('loginCtrl', function($scope, $http) {
   $scope.verify = function(creds, viewChange) {
-    console.log(creds, 'is creds')
     $http.get('/api/users/login/' + creds.name)
     .then(function(res) {
       if ( res.data && res.data.pwd === creds.pwd ) {
@@ -16,7 +15,7 @@ angular.module('app')
           window.isAdmin = true
         }
         console.log('uath pass')
-        viewChange('custom')
+        viewChange('feed')
         window.isLoggedIn = true
         window.user = res.data
         window.userName = creds.name
