@@ -27,6 +27,7 @@
     "moment": "^2.19.2",
     "mongoose": "^4.11.6",
     "mysql": "^2.14.1",
+    "nodemailer": "^4.4.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "underscore": "^1.8.3"

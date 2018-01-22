@@ -23,6 +23,7 @@ $scope.formUrl = function() {
 }
 
 $scope.submit = function(request, viewChange) {
+  request.author = window.userName
   $http.post('/api/signups/new/', request ).
   then( function (res) {
      viewChange('feed')
@@ -31,6 +32,13 @@ $scope.submit = function(request, viewChange) {
     if (err) {
       console.log(err)
     }
+  })
+  $http.post('/api/email/send/', request)
+  .then(function(res){
+    console.log('email sent ', res)
+  },
+  function(err){
+    console.log(err)
   })
 }
 
