@@ -6,7 +6,7 @@ angular.module('app')
   templateUrl: '/templates/custom.html'
 })
 
-.controller('customCtrl', function($scope, $http){
+.controller('customCtrl', function($scope, $http, $sce){
 
   $scope.userName = window.userName;
 

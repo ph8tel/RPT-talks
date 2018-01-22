@@ -12,7 +12,7 @@
         <!-- author -->
         <div class="feed-list-item-byline"><span class="feed-list-item-byline-author">{{post.author}}</span> {{post.createdAt}}</div>
 
-      <iframe  src="{{post.videoShowUrl}}" frameborder="0" allowfullscreen></iframe>
+      <iframe  src="{{vid(post)}}" height="600px" width="100%" frameborder="0" allowfullscreen></iframe>
 
         <span class="feed-list-item-lede">{{post.body}}</span>
       </li>

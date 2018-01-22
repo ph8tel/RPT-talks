@@ -18,10 +18,12 @@ angular.module('app')
   .then( function () {
       $scope.clean = $scope.list.map( (item, idx) => {
         item.createdAt = $scope.dates[idx].date
-        item.videoShowUrl = $sce.trustAsResourceUrl(item.videoUrl)
         return item
       })
     $scope.userName = window.userName
   })
+  $scope.vid = function(p) {
+    return $sce.trustAsResourceUrl(p.videoUrl.replace('watch?v=', 'embed/'))
+  }
 });
 
