@@ -5,10 +5,9 @@ angular.module('app')
   },
   templateUrl: '/templates/requests.html'
 })
-
 .controller('reqCtrl', function($scope, $http, $sce ){
 
-$http.get('api/requests/all/')
+$http.get('/api/requests/all/')
  .then( function (res) {
   $scope.currentRequests = res.data
  },
@@ -20,7 +19,8 @@ $http.get('api/requests/all/')
 
 $scope.submit = function(request, viewChange) {
   request.author = window.userName
-  $http.post('api/requests/new', request ).
+
+  $http.post('/api/requests/new/', request ).
   then( function (res) {
      viewChange('feed')
   },
@@ -29,6 +29,16 @@ $scope.submit = function(request, viewChange) {
       console.log(err)
     }
   })
+  $http.post('/api/email/request/', request)
+  .then( function (res) {
+    console.log('email sent ', res)
+  },
+  function (err) {
+    if (err) {
+      console.log(err, 'email err')
+    }
+  })
 }
 
 })
+

@@ -7,10 +7,19 @@ angular.module('app')
 })
 
 .controller('feedCtrl', function($scope, $http, $sce){
+  $scope.list = startTalks
+
   $http.get('/api/blogs/all/')
-  .then( function(res) {
-    $scope.list = res.data
+      .then( function (res) {
+        $scope.list = res.data
+        window.list = res.data
+      },
+      function (err) {
+        if (err) {
+          console.log(err)
+        }
   })
+
   $http.get('/api/blogs/dates/')
   .then( function(res) {
     $scope.dates = res.data
