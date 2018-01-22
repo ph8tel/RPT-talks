@@ -13,6 +13,9 @@
     <span ng-show="$ctrl.view !== 'login' " ng-class="$ctrl.view === 'signup' ? 'nav-selected' : 'nav-unselected'"
     ng-click="$ctrl.changeView('signup')">
   SIGN UP </span>
+      <span ng-show="$ctrl.view !== 'login' " ng-class="$ctrl.view === 'signup' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.changeView('requests')">
+  REQUEST TOPIC </span>
     <span ng-show="$ctrl.isAdmin()"
      ng-class="$ctrl.view === 'admin' ? 'nav-selected' : 'nav-unselected'"
     ng-click="$ctrl.changeView('admin')">
@@ -56,6 +59,8 @@
      ng-switch-when="custom" change-view="$ctrl.changeView"></custom>
     <signup
      ng-switch-when="signup" change-view="$ctrl.changeView"></signup>
+     <requests
+     ng-switch-when="requests" change-view="$ctrl.changeView"></requests>
 
 
     <post ng-switch-default></post>

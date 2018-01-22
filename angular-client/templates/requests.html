@@ -1,0 +1,22 @@
+<div ng-controller="reqCtrl">
+
+
+    <h2>Make a Request</h2>
+    <h3><em>Want to see something?</em></h3>
+    <form>
+      <input ng-model="p.title" name="title" class="create-input" type="text"  placeholder="Talk Title"></input>
+
+      <textarea  ng-model="p.body" name="body" class="create-body-textarea"  placeholder="What would you like to see presented?"></textarea>
+      <button ng-click="submit(p, $ctrl.changeView)" class="create-submit-button" type="submit">Send Request</button>
+    </form>
+
+    <ul>
+      <li ng-repeat="req in currentRequests"  class="feed-list-item">
+        <!-- title     -->
+        <div class="feed-list-item-title"  ng-click="$ctrl.changeView('post', post)" >{{req.title}}</div>
+        <div class="post-byline-author" > <em> by: <br /> {{req.author}} </em><br /></div>
+        <span class="feed-list-item-lede">{{req.body}}</span>
+      </li>
+    </ul>
+
+</div>

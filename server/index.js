@@ -10,11 +10,13 @@ const PORT = process.env.PORT || 3000
 
 const blogs = require('./routes/blogs/blogs')
 const users = require('./routes/users/users')
+const requests = require('./routes/requests/requests')
 //moment
 const moment = require('moment')
 // routes
 app.use('/api/blogs', blogs)
 app.use('/api/users', users)
+app.use('/api/requests', requests)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
