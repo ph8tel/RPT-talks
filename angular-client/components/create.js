@@ -7,12 +7,15 @@ angular.module('app')
 })
 
 .controller('createCtrl', function($scope, $http, $sce ){
+  $scope.userName = window.userName
 
   $scope.format = function(text) {
     return window.markdownParser(text)
   }
   $scope.vid = function(p) {
+    if (p.videoUrl.length) {
     return $sce.trustAsResourceUrl(p.videoUrl.replace('watch?v=', 'embed/'))
+  }
   }
   $scope.submit = function(p, viewSet) {
     p.author = window.userName
