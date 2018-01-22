@@ -1,0 +1,28 @@
+<div ng-controller="searchCtrl">
+    <form ng-submit="byTitle(q.title)">
+      <input ng-model="q.title" name="title" class="create-input" type="text"  placeholder="Search by Title">
+      </input>
+    </form>
+    <form ng-submit="byName(q.author)">
+      <input ng-model="q.author" name="author" class="create-input" type="text"  placeholder="Search by Author"></input>
+    </form>
+    <form ng-submit="byContent(q.body)">
+      <input ng-model="q.body" name="body" class="create-input" type="text" placeholder="Search by Content"></input>
+    </form>
+
+    <!-- <button ng-click="search({q})">Search both</button> -->
+
+    <ul>
+      <li  ng-repeat="post in running()"  class="feed-list-item">
+        <!-- title     -->
+        <div class="feed-list-item-title"  ng-click="$ctrl.changeView('post', post)" >{{post.title}}</div>
+        <!-- author -->
+        <div class="feed-list-item-byline"><span class="feed-list-item-byline-author">{{post.author}}</span> {{post.createdAt}}</div>
+        <!-- image -->
+        <img src="{{post.imageUrl}}" ng-click="$ctrl.changeView('post', post)" class="feed-list-item-image"/>
+        <!-- description text -->
+        <span class="feed-list-item-lede">{{post.body}}</span>
+      </li>
+    </ul>
+
+</div>

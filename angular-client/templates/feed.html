@@ -1,0 +1,21 @@
+<div class="feed">
+  <div ng-controller='feedCtrl' >
+  <!-- show the list by iteration -->
+    <ul>
+      <li ng-repeat="post in clean"  class="feed-list-item">
+        <!-- featured -->
+        <div ng-show="post.featured">
+          FEATURED
+        </div>
+        <!-- title     -->
+        <div class="feed-list-item-title"  ng-click="$ctrl.changeView('post', post)" >{{post.title}}</div>
+        <!-- author -->
+        <div class="feed-list-item-byline"><span class="feed-list-item-byline-author">{{post.author}}</span> {{post.createdAt}}</div>
+
+      <iframe  src="{{post.videoShowUrl}}" frameborder="0" allowfullscreen></iframe>
+
+        <span class="feed-list-item-lede">{{post.body}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

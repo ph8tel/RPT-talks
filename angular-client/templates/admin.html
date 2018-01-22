@@ -1,0 +1,61 @@
+<div ng-controller="adminCtrl">
+<div>
+  <button ng-click="$ctrl.changeView('addUser')"> user</button>
+  <ul>
+    <li ng-repeat="post in list" class="post-list-entry">
+
+      <div ng-click="$ctrl.changeView('post', post)" class="post-list-entry-title">TITLE: {{post.title}}</div>
+
+      <div class="post-list-entry-byline"> CREATED: {{post.date}} </div>
+
+      <div class="stats-list-item-views">VIEWS: {{post.views}}</div>
+      <div class="stats-list-item-views">FEATURED: {{post.featured}}</div>
+
+      <button ng-click="makeFeatured(post)">Make Featured</button>
+
+      <button ng-click="delete(post._id, $ctrl.changeView)">DELETE</button>
+
+    </li>
+  </ul>
+</div>
+
+<div>
+  <h2>USERS</h2>
+  <ul>
+
+    <li ng-repeat="user in users" class="post-list-entry">
+      <div class="post-list-entry-title">{{user.name}}</div>
+      <div class="stats-list-item-views">
+      <em>password:{{user.pwd}}</em>
+      </div>
+      <div ng-show="user.isAdmin" class="stats-list-item-views">
+        <em>ADMIN</em>
+      </div>
+
+
+      <button ng-click="postsByUser(user)">SEE POSTS</button>
+
+      <div ng-show="hasUserPosts()">
+        SHOWING
+        <ul>
+          <li ng-repeat="post in userPosts" class="post-list-entry">
+            <div ng-click="$ctrl.changeView('post', post)" class=" post-list-entry-title">TITLE: {{post.title}}</div>
+
+            <div class="post-list-entry-byline"> CREATED: {{post.date}} </div>
+
+            <div class="stats-list-item-views">VIEWS: {{post.views}}</div>
+
+            <div class="stats-list-item-views">FEATURED: {{post.featured}}</div>
+
+            <button ng-click="makeFeatured(post)">Make Featured</button>
+
+            <button ng-click="delete(post._id, $ctrl.changeView)">DELETE</button>
+          </li>
+        </ul>
+      </div>
+
+
+      <button ng-click="makeAdmin(user, $ctrl.changeView)">MAKE ADMIN</button>
+      <button ng-click="removeUser(user, $ctrl.changeView)">REMOVE USER</button>
+    </li>
+</div>

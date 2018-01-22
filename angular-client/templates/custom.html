@@ -1,0 +1,39 @@
+<div ng-controller="customCtrl" class="feed">
+  <h2>Check these out</h2>
+  <div ng-show="hasResults()">
+    <h3>Nothing to show yet, start reading some blogs!</h3>
+  </div>
+    <ul>
+      <li ng-repeat="post in running()"  class="feed-list-item">
+        <!-- title     -->
+        <div class="feed-list-item-title"  ng-click="$ctrl.changeView('post', post)" >{{post.title}}</div>
+        <!-- author -->
+        <div class="feed-list-item-byline"><span class="feed-list-item-byline-author">{{post.author}}</span> {{post.createdAt}}</div>
+        <!-- image -->
+      <iframe  src="https://www.youtube.com/watch?v={{post.videoId}}" frameborder="0" allowfullscreen></iframe>
+
+        <!-- description text -->
+        <span class="feed-list-item-lede">{{post.body}}</span>
+      </li>
+    </ul>
+    <div ng-show="currentFeatured().length">
+      <h2>Featured Posts</h2>
+    <ul>
+      <li ng-repeat="post in currentFeatured()"  class="feed-list-item">
+        <!-- title     -->
+        <div class="feed-list-item-title"  ng-click="$ctrl.changeView('post', post)" >{{post.title}}</div>
+        <!-- author -->
+        <div class="feed-list-item-byline"><span class="feed-list-item-byline-author">{{post.author}}</span> {{post.createdAt}}</div>
+        <!-- image -->
+      <iframe width="100%" src="https://www.youtube.com/watch?v={{post.videoId}}" frameborder="0" allowfullscreen></iframe>
+
+        <!-- description text -->
+        <span class="feed-list-item-lede">{{post.body}}</span>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+</div>

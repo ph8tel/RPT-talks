@@ -1,0 +1,29 @@
+<div ng-controller="createCtrl" class="create">
+  <div class="create-editor">
+    <h2>AUTHOR: {{window.userName}}</h2>
+    <form>
+      <input ng-model="p.title" name="title" class="create-input" type="text"  placeholder="Talk Title"></input>
+      <!-- <input ng-model="p.author" name="author" class="create-input" type="text"  placeholder="Author"></input> -->
+
+      <input  ng-model="p.videoUrl" name="videoUrl" class="create-input" type="text"  placeholder="Video URL"></input>
+      <textarea  ng-model="p.body" name="para" class="create-body-textarea"  placeholder="Post Body"></textarea>
+      <button ng-click="submit(p, $ctrl.changeView)" class="create-submit-button" type="submit">Save post</button>
+    </form>
+  </div>
+  <div class="create-preview">
+    <h2>PREVIEW</h2>
+    <!-- you'll use your framework of choice to implement live preview here -->
+    <div class="post">
+
+      <h1 class="post-title">{{p.title}}</h1>
+
+      <div class="post-byline"><span class="post-byline-author">{{p.author}}</span> </div>
+      <!-- <div  -->
+      <iframe  width="100%" src="{{vid(p)}}" frameborder="0" allowfullscreen></iframe>
+      <!-- </div> -->
+      <p ng-bind="format(p.body)"></p>
+
+    </div>
+  </div>
+
+</div>

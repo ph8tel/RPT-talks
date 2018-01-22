@@ -1,0 +1,21 @@
+<div class="create">
+  <div ng-controller="addCtrl" class="create-editor">
+    <h2>REGISTER</h2>
+    <form>
+
+      <input
+        ng-model="u.name" name="name" class="create-input" type="text"  placeholder="User Name">
+      </input>
+
+      <input
+        ng-model="u.pwd" name="pwd" class="create-input" type="text"  placeholder="Password">
+      </input>
+
+      <button
+        ng-click="submit(u, $ctrl.changeView)" class="create-submit-button" type="submit">
+        Register
+      </button>
+
+    </form>
+  </div>
+</div>

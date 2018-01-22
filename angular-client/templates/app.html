@@ -1,0 +1,56 @@
+<div>
+  <div class="nav">
+    <span class="logo">COMMUNITY TALKS</span>
+    <span ng-show="$ctrl.view !== 'login' "
+      ng-class="$ctrl.view === 'feed' ? 'nav-selected' : 'nav-unselected'"
+      ng-click="$ctrl.changeView('feed')">
+      See all Posts {{logged()}}
+    </span>
+    <span ng-show="$ctrl.view !== 'login' "
+     ng-class="$ctrl.view === 'create' ? 'nav-selected' : 'nav-unselected'"
+     ng-click="$ctrl.changeView('create')">
+   Write a Post</span>
+    <span ng-show="$ctrl.isAdmin()"
+     ng-class="$ctrl.view === 'admin' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.changeView('admin')">
+  Admin</span>
+    <span ng-show="$ctrl.isAdmin()"
+     ng-class="$ctrl.view === 'add' ? 'nav-selected' : 'nav-unselected'"
+     ng-click="$ctrl.changeView('add')">
+  Add User</span>
+    <span ng-show="$ctrl.isAdmin()"
+     ng-class="$ctrl.view === 'test' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.changeView('test')">
+  TEST</span>
+      <span ng-show="$ctrl.view === 'login' " ng-class="$ctrl.view === 'login' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.changeView('login')">
+  LOGIN</span>
+    <span ng-show="$ctrl.view !== 'login' " ng-class="$ctrl.view === 'login' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.loggOut()">
+  LOGOUT</span>
+  <span  ng-class="$ctrl.view === 'search' ? 'nav-selected' : 'nav-unselected'"
+    ng-click="$ctrl.changeView('search')">
+  SEARCH</span>
+  </div>
+
+  <div class="main" ng-switch on="$ctrl.view">
+    <login
+     ng-switch-when="login" change-view="$ctrl.changeView" ></login>
+    <test
+     ng-switch-when="test" change-view="$ctrl.changeView" ></test>
+    <add
+     ng-switch-when="add" change-view="$ctrl.changeView" ></add>
+    <feed
+     ng-switch-when="feed" change-view="$ctrl.changeView"></feed>
+    <admin
+     ng-switch-when="admin" change-view="$ctrl.changeView"></admin>
+    <create
+     ng-switch-when="create" change-view="$ctrl.changeView"></create>
+    <search
+     ng-switch-when="search" change-view="$ctrl.changeView"></search>
+    <custom
+     ng-switch-when="custom" change-view="$ctrl.changeView"></custom>
+    <post ng-switch-default></post>
+  </div>
+
+</div>

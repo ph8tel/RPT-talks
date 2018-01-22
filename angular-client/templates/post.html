@@ -1,0 +1,14 @@
+<div ng-controller="postCtrl" class="post">
+
+  <h1 class="post-title">{{post.title}}</h1>
+
+  <div class="post-byline"><span class="post-byline-author">{{post.author}}</span> {{date}}</div>
+
+      <iframe width="500px" src="https://www.youtube.com/watch?v={{post.videoId}}" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+   <p ng-repeat="para in body">{{para}}</p>
+
+</div>
