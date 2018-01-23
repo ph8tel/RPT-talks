@@ -16,13 +16,13 @@ angular.module('app')
   }
   $scope.vid = function(p) {
     if (p && p.videoUrl) {
-    return $sce.trustAsResourceUrl(p.videoUrl.replace('watch?v=', 'embed/'))
+    return $sce.trustAsResourceUrl(p.videoUrl.slice(0, p.videoUrl.indexOf('&')).replace('watch?v=', 'embed/'))
   }
   }
   $scope.submit = function(p, viewSet) {
     p.author = window.userName
     p.videoId = p.videoUrl.split('=')[1]
-    p.videoUrl = p.videoUrl.replace('watch?v=', 'embed/')
+    p.videoUrl = p.videoUrl.slice(0, p.videoUrl.indexOf('&')).replace('watch?v=', 'embed/')
     console.log('sending ', p)
     $http.post('/api/blogs/new/', p)
     .then( function(res) {
