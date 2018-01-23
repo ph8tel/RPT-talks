@@ -10,10 +10,12 @@ angular.module('app')
   $scope.userName = window.userName
 
   $scope.format = function(text) {
-    return window.markdownParser(text)
+    if(text){
+      return window.markdownParser(text)
+    }
   }
   $scope.vid = function(p) {
-    if (p.videoUrl.length) {
+    if (p && p.videoUrl) {
     return $sce.trustAsResourceUrl(p.videoUrl.replace('watch?v=', 'embed/'))
   }
   }

@@ -1,6 +1,9 @@
 <div ng-controller="adminCtrl">
 <div>
-  <button ng-click="$ctrl.changeView('addUser')"> user</button>
+  <button ng-click="showSignUps()">SHOW SIGNUPS</button>
+  <button ng-click="showReqs()">SHOW REQUESTS</button>
+  <button ng-click="showTalks()">SHOW TALKS</button>
+
   <ul>
     <li ng-repeat="post in list" class="post-list-entry">
 

@@ -7,23 +7,6 @@ angular.module('app')
 })
 
 .controller('adminCtrl', function($scope, $http, $rootScope) {
-  $http.get('/api/blogs/all/')
-  .then( function(res){
-    $scope.list = res.data
-    },
-    function(err) {
-      if (err) {
-        console.log(err)
-      }
-    })
-  .then( function() {
-    $scope.list.forEach( e => {
-      $http.get('/api/blogs/one/' + e._id)
-      .then( function(res) {
-        e.date = res.data
-      })
-    })
-  })
 
   $http.get('/api/users/all/')
   .then( function(res){
@@ -34,12 +17,52 @@ angular.module('app')
     }
   )
 
+  $scope.showTalks = function(){
+    $http.get('/api/blogs/all/')
+    .then( function(res){
+      $scope.list = res.data
+      },
+      function(err) {
+        if (err) {
+          console.log(err)
+        }
+      })
+    .then( function() {
+      $scope.list.forEach( e => {
+        $http.get('/api/blogs/one/' + e._id)
+        .then( function(res) {
+          e.date = res.data
+        })
+      })
+    })
+}
+
   $scope.userPosts = [];
 
   $scope.showPosts = false;
 
   $scope.hasUserPosts = function(){
     return $scope.showPosts
+  }
+
+  $scope.showReqs = function(){
+    $http.get('/api/requests/all/')
+    .then( function (res) {
+      $scope.list = res.data
+    },
+    function(err){
+      if (err) {
+        console.log(err)
+      }
+    })
+  }
+
+  $scope.showSignUps = function(){
+
+   $http.get('/api/signups/all/')
+   .then( function(res) {
+    $scope.list = res.data
+  })
   }
 
   $scope.postsByUser = function(user) {

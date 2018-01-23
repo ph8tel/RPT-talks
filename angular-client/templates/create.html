@@ -1,13 +1,15 @@
 <div ng-controller="createCtrl" class="create">
+
   <div class="create-editor">
     <h2>Submit your youtube video</h2>
     <h3><em>use long or embed url</em></h3>
     <form>
       <input ng-model="p.title" name="title" class="create-input" type="text"  placeholder="Talk Title"></input>
-      <!-- <input ng-model="p.author" name="author" class="create-input" type="text"  placeholder="Author"></input> -->
 
       <input  ng-model="p.videoUrl" name="videoUrl" class="create-input" type="text"  placeholder="Video URL"></input>
+
       <textarea  ng-model="p.body" name="para" class="create-body-textarea"  placeholder="Post Body"></textarea>
+
       <button ng-click="submit(p, $ctrl.changeView)" class="create-submit-button" type="submit">Save post</button>
     </form>
   </div>
@@ -21,12 +23,15 @@
       <div class="post-byline">
         <span class="post-byline-author"><em>by: </em>{{userName}}</span>
       </div>
-      <div ng-show="p.videoUrl.length">
+
+      <div ng-show="p.videoUrl">
         <iframe  width="100%" height="500px" src="{{ vid(p) }}" frameborder="0" allowfullscreen></iframe>
       </div>
-      <div ng-show="p.body.length">
+
+      <div ng-show="p.body">
         <p ng-bind="format(p.body)"></p>
       </div>
+
     </div>
   </div>
 
