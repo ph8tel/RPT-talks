@@ -8,8 +8,8 @@
     "dev:react": "webpack -d --watch",
     "db:setup": "node database-mongodb/seed.js"
   },
-  "author": "Hack Reactor Curriculum Team <curriculum.team@hackreactor.com>",
-  "license": "ISC",
+  "author": "Joe Jackson",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
