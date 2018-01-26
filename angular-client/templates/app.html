@@ -7,6 +7,10 @@
       SEE ALL TALKS
     </span>
     <span ng-show="$ctrl.view !== 'login' "
+     ng-class="$ctrl.view === 'calendar' ? 'nav-selected' : 'nav-unselected'"
+     ng-click="$ctrl.changeView('calendar')">
+   CALENDAR</span>
+    <span ng-show="$ctrl.view !== 'login' "
      ng-class="$ctrl.view === 'create' ? 'nav-selected' : 'nav-unselected'"
      ng-click="$ctrl.changeView('create')">
    SUBMIT</span>
@@ -61,6 +65,8 @@
      ng-switch-when="signup" change-view="$ctrl.changeView"></signup>
      <requests
      ng-switch-when="requests" change-view="$ctrl.changeView"></requests>
+     <calendar
+     ng-switch-when="calendar" change-view="$ctrl.changeView"></calendar>
 
 
     <post ng-switch-default></post>

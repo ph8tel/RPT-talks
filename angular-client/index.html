@@ -3,6 +3,8 @@
 <head>
   <title>Hack Reactor Talks</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css"/>
+
   <script src="angular/angular.js"></script>
   <script type="text/javascript" src="utils/markdownParser.js"></script>
 </head>
@@ -10,9 +12,9 @@
   <div ng-app="app">
     <app />
   </div>
+  <script type="text/javascript" src="index.js"></script>
 
   <script type="text/javascript" src="sample_data.js"></script>
-  <script type="text/javascript" src="index.js"></script>
   <script type="text/javascript" src="components/app.js"></script>
   <script type="text/javascript" src="components/feed.js"></script>
   <script type="text/javascript" src="components/post.js"></script>
@@ -25,6 +27,14 @@
   <script type="text/javascript" src="components/custom.js"></script>
   <script type="text/javascript" src="components/signup.js"></script>
   <script type="text/javascript" src="components/reqs.js"></script>
+  <script type="text/javascript" src="components/calendar.js"></script>
+<!-- jquery, moment, and angular have to get included before fullcalendar -->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+<script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script type="text/javascript" src="bower_components/fullcalendar/dist/gcal.js"></script>
+
 
 </body>
 </html>

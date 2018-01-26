@@ -14,15 +14,37 @@ angular.module('app')
       return window.markdownParser(text)
     }
   }
+
+  if ($scope.p && $scope.p.videoUrl){
+    p.videoUrlClean = urlFormat(p.videoUrl)
+  }
+
+  urlFormat = function(url){
+
+    if( url.split('').includes('&') ){
+      url = url.split('&')[0].replace('watch?v=', 'embed/')
+      console.log('inside  & sending ', url)
+      return url
+    }
+        console.log('holder now ', url)
+    if (url.split('/').find( word => word === 'youtu.be')){
+      return `https://www.youtube.com/embed/${url.split('/')[3]}`
+    } else {
+      return url
+    }
+
+  }
+
   $scope.vid = function(p) {
-    if (p && p.videoUrl) {
-    return $sce.trustAsResourceUrl(p.videoUrl.slice(0, p.videoUrl.indexOf('&')).replace('watch?v=', 'embed/'))
+    if (p && p.videoUrlClean) {
+        $sce.trustAsResourceUrl(p.videoUrlClean)
+      }
   }
-  }
+
   $scope.submit = function(p, viewSet) {
     p.author = window.userName
-    p.videoId = p.videoUrl.split('=')[1]
-    p.videoUrl = p.videoUrl.slice(0, p.videoUrl.indexOf('&')).replace('watch?v=', 'embed/')
+    p.videoId = urlFormat(p.videoUrl).split('/')[4]
+    p.videoUrl = urlFormat(p.videoUrl)
     console.log('sending ', p)
     $http.post('/api/blogs/new/', p)
     .then( function(res) {

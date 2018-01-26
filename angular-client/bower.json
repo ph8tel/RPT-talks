@@ -1,0 +1,22 @@
+{
+  "name": "angular-client",
+  "main": "index.js",
+  "authors": [
+    "Joe Jackson <ph8tel@gmail.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-calendar": "^1.0.2",
+    "ui.bootstrap": "^2.5.6"
+  }
+}
